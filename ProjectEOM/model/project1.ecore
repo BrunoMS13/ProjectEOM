@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="project1" nsURI="http://www.example.org/project1" nsPrefix="project1">
+  <eClassifiers xsi:type="ecore:EClass" name="EPerson">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nif" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EStudent" eSuperTypes="#//EPerson">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="etask" lowerBound="1" upperBound="-1"
+        eType="#//ETask"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="esupervisor" lowerBound="1"
+        upperBound="-1" eType="#//ESupervisor" eOpposite="#//ESupervisor/estudent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ethesis" lowerBound="1"
+        eType="#//EThesis"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="student_id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="course" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ESupervisor" eSuperTypes="#//EPerson">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="estudent" upperBound="-1"
+        eType="#//EStudent" eOpposite="#//EStudent/esupervisor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ethesis" lowerBound="1"
+        upperBound="-1" eType="#//EThesis" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ETask" instanceTypeName="ETask" eSuperTypes="#//EGenericActivity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eethicalissue" lowerBound="1"
+        upperBound="-1" eType="#//EEthicalIssue" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEnumerator"
+        transient="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EThesis">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="etask" lowerBound="1" upperBound="-1"
+        eType="#//ETask" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="etool" lowerBound="1" upperBound="-1"
+        eType="#//ETool"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="emilestone" lowerBound="1"
+        upperBound="-1" eType="#//EMilestone" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ethesiscomittee" lowerBound="1"
+        eType="#//EThesisComittee" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EEthicalIssue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEnumerator"
+        transient="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EMilestone" eSuperTypes="#//EGenericActivity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Date"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EGenericActivity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ETool">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EThesisComittee">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eperson" lowerBound="3"
+        upperBound="-1" eType="#//EPerson"/>
+  </eClassifiers>
+</ecore:EPackage>

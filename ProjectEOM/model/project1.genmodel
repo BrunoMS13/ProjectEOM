@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/Project1/src-gen" creationIcons="false" editDirectory="/Project1.edit/src-gen"
+    editorDirectory="/Project1.editor/src-gen" modelPluginID="Project1" modelName="Project1"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="19.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>project1.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Project1" disposableProviderFactory="true" ecorePackage="project1.ecore#/">
+    <genClasses ecoreClass="project1.ecore#//EPerson">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//EPerson/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//EPerson/age"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//EPerson/nif"/>
+    </genClasses>
+    <genClasses ecoreClass="project1.ecore#//EStudent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project1.ecore#//EStudent/etask"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project1.ecore#//EStudent/esupervisor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project1.ecore#//EStudent/ethesis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//EStudent/student_id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//EStudent/course"/>
+    </genClasses>
+    <genClasses ecoreClass="project1.ecore#//ESupervisor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project1.ecore#//ESupervisor/estudent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project1.ecore#//ESupervisor/ethesis"/>
+    </genClasses>
+    <genClasses ecoreClass="project1.ecore#//ETask">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project1.ecore#//ETask/eethicalissue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//ETask/status"/>
+    </genClasses>
+    <genClasses ecoreClass="project1.ecore#//EThesis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//EThesis/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//EThesis/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project1.ecore#//EThesis/etask"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project1.ecore#//EThesis/etool"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project1.ecore#//EThesis/emilestone"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project1.ecore#//EThesis/ethesiscomittee"/>
+    </genClasses>
+    <genClasses ecoreClass="project1.ecore#//EEthicalIssue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//EEthicalIssue/severity"/>
+    </genClasses>
+    <genClasses ecoreClass="project1.ecore#//EMilestone">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//EMilestone/date"/>
+    </genClasses>
+    <genClasses ecoreClass="project1.ecore#//EGenericActivity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//EGenericActivity/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//EGenericActivity/description"/>
+    </genClasses>
+    <genClasses ecoreClass="project1.ecore#//ETool">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project1.ecore#//ETool/name"/>
+    </genClasses>
+    <genClasses ecoreClass="project1.ecore#//EThesisComittee">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project1.ecore#//EThesisComittee/eperson"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
